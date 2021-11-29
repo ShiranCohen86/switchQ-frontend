@@ -1,0 +1,50 @@
+.App {
+    form {
+        justify-self: center;
+        min-width: rem(400px);
+        display: flex;
+        flex-direction: column;
+        gap: rem(10px);
+        background-color: white;
+        border-radius: rem(10px);
+        padding: rem(10px);
+        border: 1px solid black;
+        h1 {
+            text-align: center;
+        }
+        input {
+            margin: rem(0px) rem(20px) rem(0px) rem(20px);
+            height: rem(40px);
+            border-radius: rem(10px);
+            border: 1px solid black;
+            padding: 0 8px 0 8px;
+        }
+        .btn {
+            align-self: center;
+            height: 40px;
+            width: 100%;
+            border-radius: rem(5px);
+            background-color: #1976d2;
+            color: white;
+            font-size: rem(16px);
+        }
+        .signed-phone {
+            background-color: rgb(184, 192, 198);
+        }
+        .err-msg {
+            font-weight: 600;
+            color: red;
+        }
+        p {
+            align-self: flex-end;
+            color: blue;
+            cursor: pointer;
+        }
+        label {
+            font-weight: 600;
+        }
+        @include for-mobile-layout {
+            min-width: 100%;
+        }
+    }
+}

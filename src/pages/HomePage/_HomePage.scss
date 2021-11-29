@@ -1,0 +1,88 @@
+.guest {
+    display: grid;
+    grid-template-rows: repeat(2, 150px);
+    grid-template-columns: repeat(2, 150px);
+    align-items: center;
+    justify-items: center;
+    background-color: white;
+    border-radius: rem(10px);
+    border: 1px solid black;
+    width: fit-content;
+    justify-self: center;
+    h2 {
+        grid-column: 1/-1;
+        text-align: center;
+    }
+    // @include for-mobile-layout {
+    //     grid-template-rows: repeat(2, 125px);
+    //     grid-template-columns: repeat(2, 125px);
+    // }
+}
+.logged-user {
+    position: relative;
+}
+
+.employees-table,
+.sessions-table {
+    padding: rem(10px);
+    p {
+        font-family: unset;
+    }
+
+    .MuiPaper-root {
+        position: relative;
+
+        padding: rem(10px);
+        background-color: $clr2;
+        border-radius: rem(10px);
+        border: 1px solid black;
+        text-align: center;
+    }
+    .MuiTableCell-root {
+        // font-family: unset;
+    }
+    h2 {
+        font-family: Merienda;
+        line-height: inherit;
+        margin-bottom: 0.625rem;
+        font-size: 1.5em;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .more-less-btn {
+        padding: 0;
+        border: unset;
+        border-radius: rem(5px);
+        position: absolute;
+        top: rem(10px);
+        right: rem(10px);
+        background-color: $clr2;
+        width: rem(35px);
+        height: rem(35px);
+    }
+
+    @include for-mobile-layout {
+        width: 100%;
+        .more-less-btn {
+            width: rem(20px);
+            height: rem(20px);
+            border-radius: rem(2px);
+        }
+        .MuiPaper-root {
+            padding: rem(5px);
+        }
+
+        h2 {
+            font-size: smaller;
+            font-weight: 600;
+        }
+
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        .MuiTableCell-root {
+            padding: rem(2px);
+            font-size: rem(11px);
+        }
+    }
+}

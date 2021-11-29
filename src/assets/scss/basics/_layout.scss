@@ -1,0 +1,31 @@
+.header-layout {
+  padding: 0 15px;
+  height: 50px;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 980px 1fr;
+  grid-template-rows: rem(80px) 1fr;
+  gap: rem(70px);
+
+  > * {
+    grid-column: 2;
+    overflow: auto;
+  }
+
+  > .full {
+    grid-column: 1 / -1;
+  }
+
+  @include for-narrow-layout {
+    grid-template-columns: 5px 1fr 5px;
+    gap: rem(10px) 0;
+  }
+
+
+}
+
+.main-content {
+  flex: 1;
+}

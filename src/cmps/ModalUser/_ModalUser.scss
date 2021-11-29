@@ -1,0 +1,43 @@
+.modal-user {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    @include for-mobile-layout {
+        button {
+            font-size: rem(10px);
+            padding: 0 5px 0 5px;
+        }
+    }
+}
+.MuiModal-root {
+    .MuiBox-root {
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: rem(10px);
+            label {
+                font-weight: 600;
+            }
+            button {
+                height: 40px;
+                // width: 100%;
+                border-radius: rem(5px);
+                background-color: #34ce2f;
+                color: white;
+                font-size: rem(16px);
+            }
+            input {
+                margin: rem(0px) rem(20px) rem(0px) rem(20px);
+                height: rem(30px);
+                border-radius: rem(5px);
+                border: 1px solid black;
+                padding: 0 8px 0 8px;
+            }
+        }
+    }
+    @include for-mobile-layout {
+        .MuiBox-root {
+            width: 80vw;
+        }
+    }
+}

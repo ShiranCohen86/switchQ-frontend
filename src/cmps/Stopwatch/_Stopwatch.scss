@@ -1,0 +1,34 @@
+.stopwatch {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    position: relative;
+    h2{
+        text-align: center;
+    }
+    .btn {
+        position: absolute;
+        right: 0;
+    }
+    .start {
+        top: 0;
+    }
+    .end {
+        bottom: 0;
+    }
+    .display {
+        display: flex;
+        // width: 500px;
+        height: 100px;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: 50px;
+    }
+    @include for-narrow-layout {
+        .display {
+            justify-content: unset;
+            gap: 30px;
+        }
+    }
+}

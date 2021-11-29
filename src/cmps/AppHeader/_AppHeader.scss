@@ -1,0 +1,18 @@
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: hsl(60, 77%, 79%);
+    h1 {
+        cursor: pointer;
+    }
+
+    @include for-mobile-layout {
+        h1 {
+            font-size: rem(14px);
+        }
+        p {
+            font-size: rem(12px);
+        }
+    }
+}
