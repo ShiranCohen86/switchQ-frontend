@@ -9,6 +9,22 @@ import Paper from "@mui/material/Paper";
 import { Typography } from "@mui/material";
 
 export const SessionsTable = ({ rows, title }) => {
+  const timeDifference = (date1, date2) => {
+    let difference = date1 - date2;
+
+    let daysDifference = Math.floor(difference / 1000 / 60 / 60 / 24);
+    difference -= daysDifference * 1000 * 60 * 60 * 24;
+
+    let hoursDifference = Math.floor(difference / 1000 / 60 / 60);
+    difference -= hoursDifference * 1000 * 60 * 60;
+
+    let minutesDifference = Math.floor(difference / 1000 / 60);
+    difference -= minutesDifference * 1000 * 60;
+
+    let secondsDifference = Math.floor(difference / 1000);
+
+    return `${daysDifference} days - ${hoursDifference} hour/s - ${minutesDifference} minute/s - ${secondsDifference} second/s`;
+  };
 
   return (
     <TableContainer component={Paper} className="sessions-table">
@@ -47,13 +63,7 @@ export const SessionsTable = ({ rows, title }) => {
                 {new Date(row.endDate).toLocaleTimeString("en-Gb")}
               </TableCell>
               <TableCell>
-                {new Date(row.end - row.endDate).toLocaleDateString("en-Gb", {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}{" "}
-                {new Date(row.end - row.endDate).toLocaleTimeString("en-Gb")}
+                {timeDifference(row.endDate, row.startDate)}
               </TableCell>
             </TableRow>
           ))}

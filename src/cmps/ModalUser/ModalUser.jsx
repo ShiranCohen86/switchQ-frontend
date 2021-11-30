@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
+import { userService } from "../../services/userService";
 
 const style = {
   position: "absolute",
@@ -19,6 +20,8 @@ const style = {
 
 export function ModalUser({ addEmployee }) {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isSigned, setIsSigned] = React.useState(false);
+  const [signedClass, setSignedClass] = React.useState("");
   const handle = () => setIsOpen(!isOpen);
 
   const onSaveUser = (ev) => {
@@ -28,14 +31,26 @@ export function ModalUser({ addEmployee }) {
     const phone = ev.target.querySelector("#phone").value;
     const userCred = { fullname, passHash, phone };
 
-    console.log({ userCred });
     addEmployee(userCred);
     setIsOpen(false);
+  };
+  const onIsPhoneSigned = async (ev) => {
+    const phone = ev.target.value;
+    const isSigned = await userService.isSigned(phone);
+    if (isSigned) {
+      setIsSigned(true);
+      setSignedClass("signed-phone");
+    } else {
+      setIsSigned(false);
+      setSignedClass(null);
+    }
   };
 
   return (
     <div className="modal-user">
-      <Button variant="outlined" onClick={handle}>Add Employee</Button>
+      <Button variant="outlined" onClick={handle}>
+        Add Employee
+      </Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -64,9 +79,18 @@ export function ModalUser({ addEmployee }) {
               />
 
               <label htmlFor="phone">Phone Number</label>
-              <input required type="text" id="phone" name="phone" />
+              {isSigned && <p className="err-msg">Already registered</p>}
+              <input
+                required
+                type="text"
+                id="phone"
+                name="phone"
+                onChange={onIsPhoneSigned}
+              />
 
-              <button>save</button>
+              <button disabled={isSigned} className={signedClass}>
+                save
+              </button>
             </form>
           </Box>
         </Fade>

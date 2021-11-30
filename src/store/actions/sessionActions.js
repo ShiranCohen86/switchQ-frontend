@@ -9,16 +9,6 @@ export const loadSessions = () => {
     dispatch({ type: "SET_SESSIONS", sessions });
   };
 };
-// export const loadTransfersByContactEmail = (contactEmail) => {
-//   return async (dispatch) => {
-//     let transfers = await transferService.getTransfersByContactEmail(
-//       contactEmail
-//     );
-//     if (!transfers) transfers = null;
-
-//     dispatch({ type: "SET_TRANSFERS", transfers });
-//   };
-// };
 
 export const saveSession = (startDate, endDate) => {
   return async (dispatch) => {
@@ -30,8 +20,8 @@ export const saveSession = (startDate, endDate) => {
     }
   };
 };
+
 export const currSessionStartDate = (currSessionStartDate, loggedUserId) => {
-  console.log("tets");
   return async (dispatch) => {
     try {
       const startDate = await sessionService.setCurrSessionStartDate(

@@ -9,7 +9,6 @@ import Paper from "@mui/material/Paper";
 import { Typography } from "@mui/material";
 
 export const EmployeesTable = ({ rows, title }) => {
-
   return (
     <TableContainer component={Paper} className="employees-table">
       <Typography variant="h2">{title}</Typography>
@@ -31,10 +30,8 @@ export const EmployeesTable = ({ rows, title }) => {
             >
               <TableCell>
                 <p>{row.fullname}</p>
-                {/* <p>{row.phone}</p> */}
               </TableCell>
               <TableCell>
-                {/* <p>{row.phone}</p> */}
                 <p>{row.phone}</p>
               </TableCell>
               <TableCell>

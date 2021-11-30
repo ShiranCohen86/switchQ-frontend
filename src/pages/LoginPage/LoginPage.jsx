@@ -10,7 +10,6 @@ export const LoginPage = () => {
   const [errMsg, setErrMsg] = useState(null);
   const [passHashInputClass, setPasswordInputClass] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  // const loggedUser = useSelector((state) => state.userReducer.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

@@ -13,10 +13,6 @@
         grid-column: 1/-1;
         text-align: center;
     }
-    // @include for-mobile-layout {
-    //     grid-template-rows: repeat(2, 125px);
-    //     grid-template-columns: repeat(2, 125px);
-    // }
 }
 .logged-user {
     position: relative;
@@ -38,9 +34,7 @@
         border: 1px solid black;
         text-align: center;
     }
-    .MuiTableCell-root {
-        // font-family: unset;
-    }
+
     h2 {
         font-family: Merienda;
         line-height: inherit;

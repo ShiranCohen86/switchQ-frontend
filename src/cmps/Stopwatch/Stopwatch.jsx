@@ -7,7 +7,7 @@ export const Stopwatch = ({ loggedUser, addSession }) => {
   const [sessionStartDate, setSessionStartDate] = useState(null);
   const [isTimeout, setIsTimeout] = useState(null);
   const [isTimerOn, setIsTimerOn] = useState(false);
-  var msec = 0,
+  let msec = 0,
     sec = 1,
     min = 1,
     hour = 1;
